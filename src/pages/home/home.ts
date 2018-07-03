@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { Component, ViewChild } from '@angular/core';
+import { NavController, Slides } from 'ionic-angular';
+import { HOME_IMAGES } from "../../app/data/home-images";
 
 @Component({
   selector: 'page-home',
@@ -7,8 +8,17 @@ import { NavController } from 'ionic-angular';
 })
 export class HomePage {
 
-  constructor(public navCtrl: NavController) {
+  @ViewChild(Slides) slides: Slides;
 
+  public images;
+
+  constructor(public navCtrl: NavController) {
+    this.images = HOME_IMAGES;
+    // this.slides.startAutoplay();
+  }
+
+  ionViewDidLoad() {
+    this.slides.startAutoplay();
   }
 
 }

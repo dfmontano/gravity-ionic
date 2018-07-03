@@ -1,0 +1,24 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Tiendas</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <ion-card *ngFor="let store of stores" (click)="viewStore(store.id)">
+          <img src="{{apiURL + store.logo.url}}">
+          <ion-card-content>
+            <ion-card-title>{{ store.nombre | titlecase }}</ion-card-title>
+
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

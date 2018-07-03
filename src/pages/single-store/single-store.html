@@ -1,0 +1,23 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>{{ store.nombre }}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+
+  <ion-card>
+    <img src="{{ apiURL + store.cover.url }}"/>
+    <ion-card-content>
+      <ion-row align-items-center>
+        <ion-col><p>{{ store.total_products }} Productos</p></ion-col>
+        <ion-col>
+          <button ion-button small outline item-end>Ver Productos</button>
+        </ion-col>
+      </ion-row>
+
+    </ion-card-content>
+  </ion-card>
+</ion-content>

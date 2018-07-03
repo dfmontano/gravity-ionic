@@ -1,0 +1,21 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Tiendas</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+  <ion-list>
+    <ion-list-header>
+      Categorías
+    </ion-list-header>
+    <button ion-item *ngFor="let category of categories" (click)="showSubcategories(category.id)">
+      {{ category.name }}
+    </button>
+  </ion-list>
+
+</ion-content>
