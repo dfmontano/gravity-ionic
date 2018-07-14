@@ -1,0 +1,26 @@
+page-featured-products {
+
+  ion-card {
+    position: relative;
+    text-align: center;
+  }
+
+  .card-title {
+    position: absolute;
+    top: 5%;
+    right: 3%;
+    //left: 2%;
+    font-size: 1.5em;
+    width: 40%;
+    font-weight: normal;
+    color: #fff;
+    background-color: #222222;
+  }
+  .card-subtitle {
+    position: relative;
+
+  }
+
+}
+
+

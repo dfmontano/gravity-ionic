@@ -12,7 +12,7 @@
     <ion-row>
       <ion-col>
         <ion-card *ngFor="let store of stores" (click)="viewStore(store.id)">
-          <img src="{{apiURL + store.logo.url}}">
+          <img-loader src="{{apiURL + store.logo.url}}" useImg></img-loader>
           <ion-card-content>
             <ion-card-title>{{ store.nombre | titlecase }}</ion-card-title>
 
