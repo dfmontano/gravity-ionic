@@ -16,9 +16,21 @@ page-featured-products {
     color: #fff;
     background-color: #222222;
   }
+
+  .card-content {
+    position: absolute;
+    top: 60.5%;
+    font-size: 1.2em;
+    width: 35%;
+    font-weight: normal;
+    color: #ffffff;
+    background-color: #488aff;
+    opacity: 90%;
+  }
+
+
   .card-subtitle {
     position: relative;
-
   }
 
 }

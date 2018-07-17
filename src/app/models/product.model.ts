@@ -1,7 +1,8 @@
 import { Category } from './category.model';
 import { Subcategory } from './subcategory.model';
 import { Store } from './store.model';
-import {MainPhoto} from './main_photo.model';
+import { MainPhoto } from './main_photo.model';
+import { ProductReview } from "./product-review.model";
 
 export class Product {
   id: string;
@@ -20,5 +21,6 @@ export class Product {
   ventas: number;
   discount_price: number;
   main_photo: MainPhoto = new MainPhoto();
+  product_reviews: ProductReview[];
   // images: string[];
 }

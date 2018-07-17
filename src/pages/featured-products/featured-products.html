@@ -1,7 +1,18 @@
 <ion-header>
   <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
     <ion-title>Productos Destacados</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only color="royal">
+        <ion-icon name="cart"></ion-icon>
+      </button>
+    </ion-buttons>
   </ion-navbar>
+  <ion-toolbar>
+    <ion-searchbar [animated]="true" [placeholder]="'Que deseas comprar?'"></ion-searchbar>
+  </ion-toolbar>
 </ion-header>
 
 <ion-content no-padding>
@@ -11,13 +22,16 @@
   <ion-grid>
     <ion-row responsive-sm wrap>
       <ion-col col-6 *ngFor="let product of products">
-        <ion-card>
+        <ion-card (click)="showProduct(product.id)" no-border no-lines>
           <img-loader src="{{ apiURL + product.main_photo.url }}" useImg></img-loader>
           <div class="card-title">
             {{ '$' + product.price }}
           </div>
-
+          <div class="card-content">
+            {{ '- ' + product.discount + '%' }}
+          </div>
           <div class="card-subtitle">
+            <h4><strong>{{ product.name | slice: 0 : 19 }}</strong></h4>
             <rating [(ngModel)]="product.rating" readOnly="true" max="5"></rating>
           </div>
 

@@ -1,12 +1,19 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>single-product</ion-title>
+    <ion-title>Detalles</ion-title>
+
   </ion-navbar>
 
 </ion-header>
 
-
-<ion-content class="card-background-page" padding>
-
+<ion-content>
+  <ion-tabs tabsPlacement="top">
+    <ion-tab [root]="detailsTab" [rootParams]="{id: id}" tabTitle="Descripcion"></ion-tab>
+    <ion-tab [root]="reviewsTab" [rootParams]="{id: id}" tabTitle="Opiniones"></ion-tab>
+  </ion-tabs>
+  <!--<super-tabs>-->
+    <!--<super-tab [root]="detailsTab" [rootParams]="detailsParams" title="Descripcion"></super-tab>-->
+    <!--<super-tab [root]="reviewsTab" [rootParams]="reviewsParams" title="Opiniones"></super-tab>-->
+  <!--</super-tabs>-->
 </ion-content>

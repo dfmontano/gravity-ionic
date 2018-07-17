@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import {Component, ViewChild} from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { SpinnerDialog } from "@ionic-native/spinner-dialog";
+import { SplashScreen } from "@ionic-native/splash-screen";
 import { ProductService } from "../../app/services/product.service";
 import { Product } from "../../app/models/product.model";
 
@@ -15,12 +16,9 @@ export class FeaturedProductsPage {
   public images;
   public products: Product[];
 
-  constructor(public navCtrl: NavController, private _productService: ProductService,
-              private spinnerDialog: SpinnerDialog) {
+  constructor(private _productService: ProductService, public navCtrl: NavController,
+              private spinnerDialog: SpinnerDialog, public splashScreen: SplashScreen) {
     this.apiURL = 'http://api.clubdecomprasdonesitios.com';
-    // this.images = HOME_IMAGES;
-    // this.slides.startAutoplay();
-
   }
 
   ionViewDidLoad() {
@@ -34,6 +32,7 @@ export class FeaturedProductsPage {
       this.products = JSON.parse(result.data);
       // Hides the spinner once the data is loaded
       this.spinnerDialog.hide();
+
     }).catch(error => {
       console.log(error);
     })
@@ -48,6 +47,12 @@ export class FeaturedProductsPage {
       console.log(error);
       refresher.complete();
     })
+  }
+
+  showProduct(product_id) {
+    this.navCtrl.push('SingleProductPage', {id: product_id}).catch( error =>{
+      console.log(error);
+    });
   }
 
 }

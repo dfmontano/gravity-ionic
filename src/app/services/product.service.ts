@@ -13,4 +13,8 @@ export class ProductService {
   getFeatured() {
     return this.http.get(this.apiURL + '/products/index/featured', {}, {});
   }
+
+  getById(id: number) {
+    return this.http.get(this.apiURL + '/products/' + id, {}, {});
+  }
 }

@@ -4,6 +4,7 @@ import { FeaturedProductsPage } from './featured-products';
 import { Ionic2RatingModule } from "ionic2-rating";
 import 'rxjs/add/observable/fromEvent';
 import { IonicImageLoader } from "ionic-image-loader";
+import { SingleProductPageModule } from "../single-product/single-product.module";
 
 @NgModule({
   declarations: [
@@ -12,7 +13,8 @@ import { IonicImageLoader } from "ionic-image-loader";
   imports: [
     IonicPageModule.forChild(FeaturedProductsPage),
     Ionic2RatingModule,
-    IonicImageLoader
+    IonicImageLoader,
+    SingleProductPageModule
   ],
 })
 export class FeaturedProductsPageModule {}
