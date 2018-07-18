@@ -22,7 +22,7 @@ import { ProductReviewsPageModule } from "../pages/product-reviews/product-revie
 
 // Ionic Native plugins
 import { HTTP } from '@ionic-native/http';
-import { FCM } from '@ionic-native/fcm';
+// import { FCM } from '@ionic-native/fcm';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { SpinnerDialog } from "@ionic-native/spinner-dialog";
@@ -80,7 +80,7 @@ import { ProductService } from "./services/product.service";
     CategoryService,
     ProductService,
     SpinnerDialog,
-    FCM,
+    // FCM,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })

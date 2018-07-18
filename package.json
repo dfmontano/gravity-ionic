@@ -35,7 +35,6 @@
     "cordova-ios": "^4.5.4",
     "cordova-plugin-advanced-http": "^1.11.1",
     "cordova-plugin-device": "^2.0.2",
-    "cordova-plugin-fcm": "^2.1.2",
     "cordova-plugin-file": "^6.0.1",
     "cordova-plugin-ionic-keyboard": "^2.0.5",
     "cordova-plugin-ionic-webview": "^1.1.19",
@@ -67,8 +66,7 @@
       "cordova-plugin-ionic-keyboard": {},
       "cordova-plugin-native-spinner": {},
       "cordova-plugin-statusbar": {},
-      "cordova-plugin-file": {},
-      "cordova-plugin-fcm": {}
+      "cordova-plugin-file": {}
     },
     "platforms": [
       "browser",
