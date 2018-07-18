@@ -19,6 +19,7 @@ import { StartTabsPageModule } from "../pages/start-tabs/start-tabs.module";
 import { SingleProductPageModule } from "../pages/single-product/single-product.module";
 import { ProductDetailPageModule } from "../pages/product-detail/product-detail.module";
 import { ProductReviewsPageModule } from "../pages/product-reviews/product-reviews.module";
+import { LoginPageModule } from "../pages/login/login.module";
 
 // Ionic Native plugins
 import { HTTP } from '@ionic-native/http';
@@ -31,6 +32,8 @@ import { SpinnerDialog } from "@ionic-native/spinner-dialog";
 import { StoreService } from "./services/store.service";
 import { CategoryService } from "./services/category.service";
 import { ProductService } from "./services/product.service";
+import { UserService } from "./services/user.service";
+import { LoginService } from "./services/login.service";
 
 
 @NgModule({
@@ -59,6 +62,7 @@ import { ProductService } from "./services/product.service";
     SingleProductPageModule,
     ProductDetailPageModule,
     ProductReviewsPageModule,
+    LoginPageModule,
     // IonicPageModule.forChild(StoresPage),
     // IonicPageModule.forChild(SubcategoriesListPage),
     // IonicPageModule.forChild(SingleStorePage)
@@ -79,6 +83,8 @@ import { ProductService } from "./services/product.service";
     StoreService,
     CategoryService,
     ProductService,
+    LoginService,
+    UserService,
     SpinnerDialog,
     // FCM,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
