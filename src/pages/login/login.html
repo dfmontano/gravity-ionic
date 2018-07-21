@@ -8,7 +8,21 @@
 
 
 <ion-content padding>
-  <form #userLogin="ngForm">
-
+  <form #userLogin="ngForm" (ngSubmit)="login()">
+    <ion-item>
+      <ion-label floating>Correo Electrónico:</ion-label>
+      <ion-input type="email" name="email" #email="ngModel" [(ngModel)]="user.email" required></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label floating>Contraseña:</ion-label>
+      <ion-input type="password" name="password" #password="ngModel" [(ngModel)]="user.password" required></ion-input>
+    </ion-item>
+    <small *ngIf="loginErrorMessage">{{ loginErrorMessage }}</small>
+    <br>
+    <button ion-button type="submit" block>Iniciar Sesion</button>
   </form>
+  <br>
+  <br>
+  <button ion-button full (click)="loginWithFacebook()"><ion-icon name="logo-facebook"></ion-icon> &nbsp; Entrar con Facebook</button>
+  <button ion-button full color="danger" (click)="loginWithGoogle()"><ion-icon name="logo-google"></ion-icon> &nbsp; Entrar con Google</button>
 </ion-content>

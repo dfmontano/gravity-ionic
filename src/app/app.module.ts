@@ -27,6 +27,8 @@ import { HTTP } from '@ionic-native/http';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { SpinnerDialog } from "@ionic-native/spinner-dialog";
+import { Facebook } from "@ionic-native/facebook";
+import { GooglePlus } from "@ionic-native/google-plus";
 
 // Services
 import { StoreService } from "./services/store.service";
@@ -86,6 +88,8 @@ import { LoginService } from "./services/login.service";
     LoginService,
     UserService,
     SpinnerDialog,
+    Facebook,
+    GooglePlus,
     // FCM,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
