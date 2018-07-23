@@ -2,6 +2,7 @@ import { Injectable } from "@angular/core";
 import { HTTP } from "@ionic-native/http";
 import { Storage } from "@ionic/storage";
 import { User } from "../models/user.model";
+import { globals } from "../globals";
 
 @Injectable()
 export class LoginService {
@@ -12,7 +13,7 @@ export class LoginService {
   private hasLoggedIn: boolean;
 
   constructor(private storage: Storage, private http: HTTP) {
-    this.apiURL = 'http://api.clubdecomprasdonesitios.com';
+    this.apiURL = globals.apiURL;
     this.jsonHeader = {'Content-Type': 'application/json'};
     this.http.setDataSerializer('json');
   }
@@ -36,6 +37,10 @@ export class LoginService {
 
   getAuthToken(): string {
     return this.authToken;
+  }
+
+  getCurrentUser() {
+
   }
 
 }

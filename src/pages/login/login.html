@@ -23,6 +23,16 @@
   </form>
   <br>
   <br>
-  <button ion-button full (click)="loginWithFacebook()"><ion-icon name="logo-facebook"></ion-icon> &nbsp; Entrar con Facebook</button>
-  <button ion-button full color="danger" (click)="loginWithGoogle()"><ion-icon name="logo-google"></ion-icon> &nbsp; Entrar con Google</button>
+  <ion-grid>
+    <ion-row justify-content-center align-items-baseline>
+      <div class="signup-message">¿Aún no eres miembro? Regístrate Aquí</div>
+    </ion-row>
+  </ion-grid>
+  <hr>
+  <button ion-button full class="facebook-login" (click)="loginWithFacebook()">
+    <ion-icon name="logo-facebook"></ion-icon> &nbsp; Entrar con Facebook
+  </button>
+  <button ion-button full class="google-login" (click)="loginWithGoogle()">
+    <ion-icon name="logo-google"></ion-icon> &nbsp; Entrar con Google
+  </button>
 </ion-content>

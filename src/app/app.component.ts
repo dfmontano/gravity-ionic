@@ -1,12 +1,14 @@
 import { Component } from '@angular/core';
-import {Modal, Platform} from 'ionic-angular';
+import { Modal, Platform } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { ModalController } from "ionic-angular";
+import { LoginService } from "./services/login.service";
 // import { FCM } from "@ionic-native/fcm";
 
 import { StartTabsPage } from "../pages/start-tabs/start-tabs";
 import { LoginPage } from "../pages/login/login";
+import { UserSignupPage } from "../pages/user-signup/user-signup";
 
 @Component({
   templateUrl: 'app.html'
@@ -28,5 +30,10 @@ export class MyApp {
   showLoginPage() {
     const loginModal = this.modalController.create(LoginPage);
     loginModal.present();
+  }
+
+  showSignupPage() {
+    const signupModal = this.modalController.create(UserSignupPage);
+    signupModal.present();
   }
 }
