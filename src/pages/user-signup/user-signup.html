@@ -17,28 +17,35 @@
 
   <form (ngSubmit)="signup()" [formGroup]="userSignupForm">
     <ion-item>
-      <ion-label floating>Nro. de Cédula:</ion-label>
-      <ion-input type="number" name="cedula" formControlName="cedula"  ></ion-input>
+      <ion-label floating [class.valid-label]="userSignupForm.controls.cedula.valid && userSignupForm.controls.cedula.dirty" >Nro. de Cédula:</ion-label>
+      <ion-input type="number" name="cedula" formControlName="cedula"
+                 [class.invalid]="!userSignupForm.controls.cedula.valid && userSignupForm.controls.cedula.dirty"></ion-input>
+    </ion-item>
+    <ion-item *ngIf="userSignupForm.controls.cedula.pending" no-lines>
+      <p>Comprobando cedula...</p>
     </ion-item>
     <ion-item>
-      <ion-label floating>Correo Electrónico:</ion-label>
+      <ion-label floating [class.valid-label]="userSignupForm.controls.email.valid && userSignupForm.controls.email.dirty">Correo Electrónico:</ion-label>
       <ion-input type="email" name="email" formControlName="email"
                  [class.invalid]="!userSignupForm.controls.email.valid && userSignupForm.controls.email.dirty"></ion-input>
     </ion-item>
-    <ion-item *ngIf="userSignupForm.controls.email.pending">
+    <ion-item *ngIf="userSignupForm.controls.email.pending" no-lines>
       <p>Comprobando email...</p>
     </ion-item>
-    <ion-item></ion-item>
     <ion-item>
-      <ion-label floating>Nombres:</ion-label>
-      <ion-input type="text" name="nombres" required></ion-input>
+      <ion-label floating [class.valid-label]="userSignupForm.controls.nombres.valid && userSignupForm.controls.nombres.dirty">Nombres:</ion-label>
+      <ion-input type="text" name="nombres" formControlName="nombres" required></ion-input>
     </ion-item>
     <ion-item>
-      <ion-label floating>Apellidos:</ion-label>
-      <ion-input type="text" name="apellidos"  required></ion-input>
+      <ion-label floating [class.valid-label]="userSignupForm.controls.nombres.valid && userSignupForm.controls.nombres.dirty">Apellidos:</ion-label>
+      <ion-input type="text" name="apellidos" formControlName="apellidos" required></ion-input>
     </ion-item>
     <ion-item>
       <ion-label floating>Contraseña:</ion-label>
+      <ion-input type="password" name="password" required></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label floating>Confirme su contraseña:</ion-label>
       <ion-input type="password" name="password" required></ion-input>
     </ion-item>
 

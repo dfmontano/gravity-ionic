@@ -20,14 +20,34 @@ export class UserValidator {
           this._userService.check_email(control.value).then( response => {
             const validationMsg = JSON.parse(response.data);
             if (validationMsg.message == 'taken' ) {
-              resolve({
-                'email taken': true
-              });
+              resolve({'email taken': true});
             }
             else{
               resolve(null);
             }
         });
+      }, 1000);
+    });
+
+  }
+
+  checkCedula(control: FormControl) {
+
+    clearTimeout(this.debouncer);
+
+    return new Promise( resolve => {
+      this.debouncer = setTimeout(() => {
+
+        this._userService.check_cedula(control.value).then( response => {
+          const validationMsg = JSON.parse(response.data);
+          if (validationMsg.message == 'taken') {
+            resolve({ 'cedula taken': true });
+          }
+          else {
+            resolve(null);
+          }
+        });
+
       }, 1000);
     });
 

@@ -19,8 +19,12 @@ export class UserSignupPage {
               public alertCtrl: AlertController, public formBuilder: FormBuilder, public userValidator: UserValidator) {
     this.user = new User();
     this.userSignupForm = formBuilder.group({
-      cedula: [''],
-      email: ['', Validators.compose([Validators.email, Validators.required]), this.userValidator.checkEmail.bind(this.userValidator)]
+      cedula: ['', Validators.compose([Validators.required, Validators.minLength(10), Validators.maxLength(10)]),
+        this.userValidator.checkCedula.bind(this.userValidator)],
+      email: ['', Validators.compose([Validators.email, Validators.required]),
+        this.userValidator.checkEmail.bind(this.userValidator)],
+      nombres: ['', Validators.compose([Validators.required])],
+      apellidos: ['', Validators.compose([Validators.required])]
     });
   }
 
@@ -42,7 +46,7 @@ export class UserSignupPage {
         });
         alert.present();
       }
-    }).catch( error => {
+    }).catch(error => {
       console.log(error.error)
     });
   }

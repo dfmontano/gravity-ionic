@@ -8,9 +8,10 @@ export class CartService {
   private cartItems: Product[];
   private totalPrice: number;
   private isPremium: boolean;
+  private user: User;
 
-  constructor (user: User) {
-    this.isPremium = user.premium;
+  setUser(user: User) {
+    this.user = user;
   }
 
   addProduct (item: Product) {
@@ -19,6 +20,12 @@ export class CartService {
 
   getTotalPrice () {
     if (this.isPremium){
+      for (let item of this.cartItems) {
+        let discountPrice = item.price - (item.price * item.discount / 100 );
+        this.totalPrice += (item.price - discountPrice);
+      }
+    }
+    else {
 
     }
   }
