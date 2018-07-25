@@ -5,7 +5,7 @@
     </button>
     <ion-title>Productos Destacados</ion-title>
     <ion-buttons end>
-      <button ion-button icon-only color="royal">
+      <button ion-button icon-only color="royal" (click)="_cartService.showCart()">
         <ion-icon name="cart"></ion-icon> <ion-badge color="danger">{{ _cartService.cartItems.length }}</ion-badge>
       </button>
     </ion-buttons>

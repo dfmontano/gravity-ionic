@@ -39,7 +39,9 @@ export class LoginPage {
     this._loginService.login(this.user).then(result => {
       this.auth_token = JSON.parse(result.data);
       console.log(this.auth_token.auth_token);
-      this.storage.set('auth_token', this.auth_token.auth_token);
+      this.storage.set('auth_token', this.auth_token.auth_token).then(() => {
+        this._loginService.isLogged();
+      });
       this.navCtrl.pop();
     }).catch(error => {
       console.log(error);

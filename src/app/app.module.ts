@@ -22,10 +22,10 @@ import { ProductDetailPageModule } from "../pages/product-detail/product-detail.
 import { ProductReviewsPageModule } from "../pages/product-reviews/product-reviews.module";
 import { LoginPageModule } from "../pages/login/login.module";
 import { UserSignupPageModule } from "../pages/user-signup/user-signup.module";
+import { CartPageModule } from "../pages/cart/cart.module";
 
 // Ionic Native plugins
 import { HTTP } from '@ionic-native/http';
-// import { FCM } from '@ionic-native/fcm';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { SpinnerDialog } from "@ionic-native/spinner-dialog";
@@ -39,6 +39,7 @@ import { ProductService } from "./services/product.service";
 import { UserService } from "./services/user.service";
 import { LoginService } from "./services/login.service";
 import { CartService } from "./services/cart.service";
+
 // Validators
 import { UserValidator } from "./validators/user.validator";
 
@@ -71,7 +72,8 @@ import { UserValidator } from "./validators/user.validator";
     ProductDetailPageModule,
     ProductReviewsPageModule,
     LoginPageModule,
-    UserSignupPageModule
+    UserSignupPageModule,
+    CartPageModule
     // IonicPageModule.forChild(StoresPage),
     // IonicPageModule.forChild(SubcategoriesListPage),
     // IonicPageModule.forChild(SingleStorePage)

@@ -61,7 +61,6 @@
   "description": "An Ionic project",
   "cordova": {
     "plugins": {
-      "cordova-plugin-advanced-http": {},
       "cordova-plugin-whitelist": {},
       "cordova-plugin-device": {},
       "cordova-plugin-splashscreen": {},
@@ -78,7 +77,8 @@
       "cordova-plugin-googleplus": {
         "REVERSED_CLIENT_ID": "apps.googleusercontent.com.10639743519-n8johd5m87liht0tmr0bmh6idk923s4k",
         "WEB_APPLICATION_CLIENT_ID": "1063429743519-n8johd5m87liht0tmr0bmh6idk923s4k.apps.googleusercontent.com"
-      }
+      },
+      "cordova-plugin-advanced-http": {}
     },
     "platforms": [
       "android",

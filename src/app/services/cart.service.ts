@@ -1,12 +1,13 @@
 import { Injectable } from "@angular/core";
-import { AlertController } from "ionic-angular";
-import { ToastController } from "ionic-angular";
+import { AlertController, ToastController, ModalController} from "ionic-angular";
 import { Storage } from "@ionic/storage";
 
 import { Product } from "../models/product.model";
 import { User } from "../models/user.model";
 
 import { LoginService } from "./login.service";
+
+import { LoginPage } from "../../pages/login/login";
 
 @Injectable()
 export class CartService {
@@ -17,7 +18,7 @@ export class CartService {
   private user: User;
 
   constructor(private alertController: AlertController, private storage: Storage, public toastController: ToastController,
-              private _loginService: LoginService) {
+              private modalController: ModalController, private _loginService: LoginService) {
     this.getItemsFromStorage();
   }
 
@@ -25,30 +26,40 @@ export class CartService {
     this.user = user;
   }
 
-  addProduct (item: Product) {
+  addProduct(item: Product) {
 
-    // Check if the product was already added in the cart
-    if (this.cartItems) {
-      for(let cartItem of this.cartItems) {
-        if ( item.id == cartItem.id) {
-          // Show alert
-          this.alertController.create({
-            title: 'Producto existente',
-            subTitle: 'El producto ya se encuentra en el carrito',
-            buttons: ['OK']
-          }).present();
-          return;
+    if (this._loginService.userIsLogged == true) {
+      // Check if the product was already added in the cart
+      if (this.cartItems) {
+        for (let cartItem of this.cartItems) {
+          if (item.id == cartItem.id) {
+            // Show alert
+            this.alertController.create({
+              title: 'Producto existente',
+              subTitle: 'El producto ya se encuentra en el carrito',
+              buttons: ['OK']
+            }).present();
+            return;
+          }
         }
       }
+
+      this.cartItems.push(item);
+      this.saveInStorage();
+      // Shows toast alert when a product is successfully added to the cart
+      const toast = this.toastController.create({
+        message: 'Producto añadido al carrito',
+        duration: 1500
+      });
+      toast.present();
     }
 
-    this.cartItems.push(item);
-    this.saveInStorage();
-    // Shows toast alert when a product is successfully added to the cart
-    const toast = this.toastController.create({
-      message: 'Producto añadido al carrito',
-      duration: 1500
+    this.alertController.create({
+      title: 'Inicia Sesión',
+      subTitle: 'Por favor inicia sesión para empezar a comprar',
+      buttons: ['OK']
     }).present();
+
   }
 
   getItemsFromStorage() {
@@ -62,6 +73,18 @@ export class CartService {
         });
       } );
     } );
+  }
+
+  showCart() {
+
+    if (this._loginService.userIsLogged) {
+      console.log('User has logged in');
+    }
+    else {
+      const loginModal = this.modalController.create(LoginPage);
+      loginModal.present();
+    }
+
   }
 
   private saveInStorage() {

@@ -17,7 +17,7 @@ export class MyApp {
   rootPage: any = StartTabsPage;
 
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen,
-              public modalController: ModalController) {
+              public modalController: ModalController, private _loginService: LoginService) {
     platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
@@ -36,4 +36,9 @@ export class MyApp {
     const signupModal = this.modalController.create(UserSignupPage);
     signupModal.present();
   }
+
+  logout() {
+    this._loginService.logout();
+  }
+
 }
