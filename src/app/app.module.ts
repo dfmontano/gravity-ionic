@@ -38,7 +38,7 @@ import { CategoryService } from "./services/category.service";
 import { ProductService } from "./services/product.service";
 import { UserService } from "./services/user.service";
 import { LoginService } from "./services/login.service";
-
+import { CartService } from "./services/cart.service";
 // Validators
 import { UserValidator } from "./validators/user.validator";
 
@@ -98,6 +98,7 @@ import { UserValidator } from "./validators/user.validator";
     Facebook,
     GooglePlus,
     UserValidator,
+    CartService,
     // FCM,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]

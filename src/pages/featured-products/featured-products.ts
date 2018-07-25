@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { SpinnerDialog } from "@ionic-native/spinner-dialog";
 import { SplashScreen } from "@ionic-native/splash-screen";
 import { ProductService } from "../../app/services/product.service";
+import { CartService } from "../../app/services/cart.service";
 import { Product } from "../../app/models/product.model";
 
 @IonicPage()
@@ -17,7 +18,7 @@ export class FeaturedProductsPage {
   public products: Product[];
 
   constructor(private _productService: ProductService, public navCtrl: NavController,
-              private spinnerDialog: SpinnerDialog, public splashScreen: SplashScreen) {
+              private spinnerDialog: SpinnerDialog, public splashScreen: SplashScreen, private _cartService: CartService) {
     this.apiURL = 'http://api.clubdecomprasdonesitios.com';
   }
 

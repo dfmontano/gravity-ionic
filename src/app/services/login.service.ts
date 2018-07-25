@@ -11,6 +11,7 @@ export class LoginService {
   private readonly jsonHeader;
   private authToken: string;
   private hasLoggedIn: boolean;
+  public user: User;
 
   constructor(private storage: Storage, private http: HTTP) {
     this.apiURL = globals.apiURL;

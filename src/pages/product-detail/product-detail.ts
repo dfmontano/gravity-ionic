@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { ProductService } from "../../app/services/product.service";
+import { CartService } from "../../app/services/cart.service";
 import { Product } from "../../app/models/product.model";
 
 @IonicPage()
@@ -14,15 +15,16 @@ export class ProductDetailPage {
   public id: number;
   public product: Product;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private _productService: ProductService) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private _productService: ProductService,
+              public _cartService: CartService) {
     this.product = new Product();
     this.id = this.navParams.get('id');
-    this.apiURL = 'http://api.clubdecomprasdonesitios.com'
+    this.apiURL = 'http://api.clubdecomprasdonesitios.com';
+    this.getProduct();
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ProductDetailPage');
-    this.getProduct();
     console.log(this.product.main_photo.url);
   }
 
@@ -35,6 +37,10 @@ export class ProductDetailPage {
     }, error => {
       console.log(error);
     });
+  }
+
+  addToCart() {
+    this._cartService.addProduct(this.product);
   }
 
 }
