@@ -53,12 +53,13 @@ export class CartService {
       });
       toast.present();
     }
-
-    this.alertController.create({
-      title: 'Inicia Sesión',
-      subTitle: 'Por favor inicia sesión para empezar a comprar',
-      buttons: ['OK']
-    }).present();
+    else {
+      this.alertController.create({
+        title: 'Inicia Sesión',
+        subTitle: 'Por favor inicia sesión para empezar a comprar',
+        buttons: ['OK']
+      }).present();
+    }
 
   }
 
