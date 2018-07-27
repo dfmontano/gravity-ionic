@@ -36,7 +36,7 @@ export class LoginService {
 
   isLogged() {
     this.storage.get('auth_token').then(token => {
-
+      // Checks if th token exists in local storage
       if (token) {
         this.authToken = token;
         this.userIsLogged = true;
@@ -54,7 +54,8 @@ export class LoginService {
   }
 
   getCurrentUser() {
-
+    const authHeader = {'Authorization': this.authToken};
+    return this.http.get(this.apiURL + '/users/current', {}, authHeader);
   }
 
 }

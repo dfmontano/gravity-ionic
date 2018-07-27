@@ -1,12 +1,8 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angular';
+import { globals } from "../../app/globals";
 
-/**
- * Generated class for the CartPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import { CartService } from "../../app/services/cart.service";
 
 @IonicPage()
 @Component({
@@ -15,11 +11,20 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class CartPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  public apiURL: string;
+
+  constructor(public navCtrl: NavController, public navParams: NavParams,
+              public viewController: ViewController, public _cartService: CartService) {
+    this.apiURL = globals.apiURL;
+
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad CartPage');
+  }
+
+  emptyCart() {
+    this._cartService.cartItems = [];
   }
 
 }

@@ -1,12 +1,35 @@
 <ion-header>
-
-  <ion-navbar>
-    <ion-title>Carrito de Compras</ion-title>
-  </ion-navbar>
-
+  <ion-toolbar>
+    <ion-buttons start>
+      <button ion-button (click)="viewController.dismiss()">Cerrar</button>
+    </ion-buttons>
+    <ion-title>Carrito</ion-title>
+    <ion-buttons end>
+      <button ion-button (click)="emptyCart()">Vaciar</button>
+    </ion-buttons>
+  </ion-toolbar>
 </ion-header>
 
-
 <ion-content padding>
+  <ion-card>
+    <h3>{{ _cartService.totalPrice | currency:'USD':'symbol' }}</h3>
+  </ion-card>
+  <ion-list>
+    <ion-item-sliding *ngFor="let item of _cartService.cartItems">
+      <ion-item>
+        <ion-thumbnail item-start>
+          <img src="{{ apiURL + item.main_photo.url }}">
+        </ion-thumbnail>
+        <h2>{{ item.name }}</h2>
+        <p><strong>{{ item.price | currency:'USD': 'symbol' }}</strong></p>
+      </ion-item>
+      <ion-item-options side="right">
+        <button ion-button outline color="danger">
+          <ion-icon name="trash"></ion-icon>
+          Eliminar
+        </button>
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
 
 </ion-content>

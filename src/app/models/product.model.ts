@@ -20,6 +20,7 @@ export class Product {
   reviews: number;
   ventas: number;
   discount_price: number;
+  cart_quantity: number;
   main_photo: MainPhoto = new MainPhoto();
   product_reviews: ProductReview[];
   // images: string[];
