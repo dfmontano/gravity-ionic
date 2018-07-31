@@ -23,6 +23,8 @@ import { ProductReviewsPageModule } from "../pages/product-reviews/product-revie
 import { LoginPageModule } from "../pages/login/login.module";
 import { UserSignupPageModule } from "../pages/user-signup/user-signup.module";
 import { CartPageModule } from "../pages/cart/cart.module";
+import { UserAddressPageModule } from "../pages/user-address/user-address.module";
+import { OrderConfirmationPageModule } from "../pages/order-confirmation/order-confirmation.module";
 
 // Ionic Native plugins
 import { HTTP } from '@ionic-native/http';
@@ -31,6 +33,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { SpinnerDialog } from "@ionic-native/spinner-dialog";
 import { Facebook } from "@ionic-native/facebook";
 import { GooglePlus } from "@ionic-native/google-plus";
+import { GoogleMaps } from "@ionic-native/google-maps";
+import { Geolocation } from "@ionic-native/geolocation";
 
 // Services
 import { StoreService } from "./services/store.service";
@@ -42,6 +46,10 @@ import { CartService } from "./services/cart.service";
 
 // Validators
 import { UserValidator } from "./validators/user.validator";
+
+import { AngularFireModule } from "angularfire2";
+import { AngularFireDatabaseModule } from "angularfire2/database";
+import { firebaseConfig } from "./globals";
 
 @NgModule({
   declarations: [
@@ -73,7 +81,11 @@ import { UserValidator } from "./validators/user.validator";
     ProductReviewsPageModule,
     LoginPageModule,
     UserSignupPageModule,
-    CartPageModule
+    CartPageModule,
+    AngularFireModule.initializeApp(firebaseConfig),
+    AngularFireDatabaseModule,
+    UserAddressPageModule,
+    OrderConfirmationPageModule
     // IonicPageModule.forChild(StoresPage),
     // IonicPageModule.forChild(SubcategoriesListPage),
     // IonicPageModule.forChild(SingleStorePage)
@@ -101,6 +113,8 @@ import { UserValidator } from "./validators/user.validator";
     GooglePlus,
     UserValidator,
     CartService,
+    GoogleMaps,
+    Geolocation,
     // FCM,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]

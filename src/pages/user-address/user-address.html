@@ -1,0 +1,20 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>user-address</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+
+  <button ion-button (click)="showAddres()">Get Address</button>
+  <ion-card>
+    <ion-card-content>
+      <h3>{{ address }}</h3>
+    </ion-card-content>
+  </ion-card>
+
+  <div id="map_canvas1"></div>
+
+</ion-content>

@@ -62,6 +62,7 @@ export class CartService {
 
   }
 
+  // Retrieve cart items from phone local storage
   getItemsFromStorage() {
     let promise = new Promise( (resolve, reject) => {
       this.storage.ready().then( () => {

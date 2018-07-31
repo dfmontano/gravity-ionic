@@ -56,4 +56,8 @@ export class FeaturedProductsPage {
     });
   }
 
+  showAddressPage() {
+    this.navCtrl.push('UserAddressPage');
+  }
+
 }
