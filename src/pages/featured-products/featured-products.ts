@@ -20,9 +20,10 @@ export class FeaturedProductsPage {
   constructor(private _productService: ProductService, public navCtrl: NavController,
               private spinnerDialog: SpinnerDialog, public splashScreen: SplashScreen, private _cartService: CartService) {
     this.apiURL = 'http://api.clubdecomprasdonesitios.com';
+    // this.showFeatured();
   }
 
-  ionViewDidLoad() {
+  ionViewDidEnter() {
     this.showFeatured();
   }
 

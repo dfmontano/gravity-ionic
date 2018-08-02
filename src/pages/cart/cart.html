@@ -12,7 +12,7 @@
 
 <ion-content padding>
   <ion-card>
-    <h3>{{ _cartService.totalPrice | currency:'USD':'symbol' }}</h3>
+    <ion-card-header>Total: {{ _cartService.totalPrice | currency:'USD':'symbol' }} | Productos: {{ _cartService.totalItems }}</ion-card-header>
   </ion-card>
   <ion-list>
     <ion-item-sliding *ngFor="let item of _cartService.cartItems">
@@ -21,7 +21,19 @@
           <img src="{{ apiURL + item.main_photo.url }}">
         </ion-thumbnail>
         <h2>{{ item.name }}</h2>
-        <p><strong>{{ item.price | currency:'USD': 'symbol' }}</strong></p>
+        <ion-row>
+          <ion-col>
+            <p><strong>{{ item.price | currency:'USD': 'symbol' }}</strong></p>
+          </ion-col>
+          <ion-col>
+            <button ion-button small (click)="item.cart_quantity = item.cart_quantity + 1; _cartService.getTotalPrice()">+</button>
+            <span>{{ item.cart_quantity }}</span>
+            <button ion-button small (click)="item.cart_quantity = item.cart_quantity - (1); _cartService.getTotalPrice()" [disabled]="item.cart_quantity == 1">-</button>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          {{ item.order_instructions }}
+        </ion-row>
       </ion-item>
       <ion-item-options side="right">
         <button ion-button outline color="danger">
@@ -32,6 +44,6 @@
     </ion-item-sliding>
   </ion-list>
 
-  <button ion-button>Comprar!</button>
+  <button ion-button block (click)="confirmOrder()" >Comprar!</button>
 
 </ion-content>

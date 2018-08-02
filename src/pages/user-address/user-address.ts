@@ -19,6 +19,7 @@ export class UserAddressPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private geolocation: Geolocation,
               private spinner: SpinnerDialog) {
+    // this.showAddres();
     this.loadMap1();
   }
 
@@ -73,7 +74,7 @@ export class UserAddressPage {
     this.map1 = GoogleMaps.create('map_canvas1', {
       camera: {
         target: { "lat": 37.422858, "lng": -122.085065 },
-        zoom: 10
+        zoom: 15
       }
     });
 

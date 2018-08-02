@@ -14,7 +14,7 @@
         <ion-card *ngFor="let store of stores" (click)="viewStore(store.id)">
           <img-loader src="{{apiURL + store.logo.url}}" useImg></img-loader>
           <ion-card-content>
-            <ion-card-title>{{ store.nombre | titlecase }}</ion-card-title>
+            <ion-card-title>{{ store.nombre }}</ion-card-title>
 
           </ion-card-content>
         </ion-card>

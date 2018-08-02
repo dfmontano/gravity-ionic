@@ -21,6 +21,7 @@ export class Product {
   ventas: number;
   discount_price: number;
   cart_quantity: number;
+  order_instructions: string;
   main_photo: MainPhoto = new MainPhoto();
   product_reviews: ProductReview[];
   // images: string[];

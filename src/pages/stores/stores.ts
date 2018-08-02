@@ -14,11 +14,12 @@ export class StoresPage {
   public categories: Category[];
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private _categoryService: CategoryService) {
-    this.getAllCategories();
+
   }
 
-  ionViewDidLoad() {
+  ionViewDidEnter() {
     console.log('ionViewDidLoad StoresPage');
+    this.getAllCategories();
   }
 
   getAllCategories() {
@@ -32,6 +33,16 @@ export class StoresPage {
   showSubcategories(category_id) {
     this.navCtrl.push(SubcategoriesListPage, {category_id: category_id }).catch(error =>{
       console.log(error);
+    });
+  }
+
+  doRefresh(refresher) {
+    this._categoryService.getAll().then( result => {
+      this.categories = JSON.parse(result.data);
+      refresher.complete();
+    }).catch( error => {
+      console.log(error);
+      refresher.complete();
     });
   }
 

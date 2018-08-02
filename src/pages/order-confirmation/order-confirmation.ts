@@ -1,12 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
-/**
- * Generated class for the OrderConfirmationPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import { Order } from "../../app/models/order.model";
+import { OrderProduct } from "../../app/models/order_product.model";
 
 @IonicPage()
 @Component({
